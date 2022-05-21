@@ -1,0 +1,17 @@
+#myProgress {
+    width: 100%;
+    background-color: grey;
+  }
+  
+  #myBar {
+    height: 30px;
+    background-color: green;
+    display:flex;
+    justify-content:center;
+    align-items:center
+  }
+.progressText{
+  color: white;
+  text-align: center;
+  font-size: 12px;
+}
