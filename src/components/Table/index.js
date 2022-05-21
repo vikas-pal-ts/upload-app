@@ -38,9 +38,9 @@ const Table = () => {
 
   return (
     <>
+      <FusejsSearch />
       {data.length ? (
         <>
-          <FusejsSearch />
           <table>
             <thead>
               <tr>
@@ -82,7 +82,9 @@ const Table = () => {
             </tbody>
           </table>
         </>
-      ) : null}
+      ) : (
+        <h3 style={{ textAlign: "center" }}>No Data Found</h3>
+      )}
     </>
   );
 };
