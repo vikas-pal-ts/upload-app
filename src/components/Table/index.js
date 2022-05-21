@@ -38,47 +38,51 @@ const Table = () => {
 
   return (
     <>
-      <FusejsSearch />
-      <table>
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Custodian</th>
-            <th>Progress</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => {
-            return (
-              <tr key={item?.id}>
-                <td data-column="Image">
-                  <img className="tableImg" alt="test" src={item?.file} />
-                </td>
-                <td data-column="Custodian">{item?.custodianName}</td>
-                <td data-column="Progress">
-                  <ProgressBar progessPercent={demoProgress} />
-                </td>
-                <td data-column="Delete">
-                  <button
-                    style={{
-                      backgroundColor: "red",
-                      color: "white",
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => {
-                      removeItem(item?.id);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </td>
+      {data.length ? (
+        <>
+          <FusejsSearch />
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Custodian</th>
+                <th>Progress</th>
+                <th>Delete</th>
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            </thead>
+            <tbody>
+              {data.map((item) => {
+                return (
+                  <tr key={item?.id}>
+                    <td data-column="Image">
+                      <img className="tableImg" alt="test" src={item?.file} />
+                    </td>
+                    <td data-column="Custodian">{item?.custodianName}</td>
+                    <td data-column="Progress">
+                      <ProgressBar progessPercent={demoProgress} />
+                    </td>
+                    <td data-column="Delete">
+                      <button
+                        style={{
+                          backgroundColor: "red",
+                          color: "white",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          removeItem(item?.id);
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </>
+      ) : null}
     </>
   );
 };
